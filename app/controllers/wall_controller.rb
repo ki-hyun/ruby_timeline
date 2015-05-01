@@ -2,7 +2,7 @@ class WallController < ApplicationController
   def write
   end
 
-  def post
+  def posts
 		@writer = params[:writer]
 		@content = params[:content]
   end
