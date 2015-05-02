@@ -39,6 +39,8 @@ class WallController < ApplicationController
 		p.destroy
 		
 		redirect_to "/wall/posts"
+	end
+
   def posts
 		@posts = Post.all
   end
