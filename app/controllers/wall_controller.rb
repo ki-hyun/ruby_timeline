@@ -19,9 +19,9 @@ class WallController < ApplicationController
 	end
  	
 	def edit_complete
-		p = Post.find(params[:id]
+		p = Post.find(params[:id])
 		p.name = params[:writer_edit]
-		p.content = params[:content_edt]
+		p.content = params[:content_edit]
 		if p.save
 			redirect_to "/wall/posts"
 		else
@@ -30,6 +30,9 @@ class WallController < ApplicationController
 		end
 	end
 	
+	def delete
+		@post_delete = Post.find(params[:id])
+	end
 
   def posts
 		@posts = Post.all
