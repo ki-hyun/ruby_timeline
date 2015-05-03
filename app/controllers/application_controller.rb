@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 	
 	def login_check
 		@current_user = nil
-		if @cookies[:user_id].nil?
-			@current_user = user.find(cookies[:user_id])
+		if !cookies[:user_id].nil?
+			@current_user = User.find(cookies[:user_id])
 		else
 			redirect_to "/user/login"
 		end

@@ -33,14 +33,15 @@ class UserController < ApplicationController
 				flash[:alert] = "Incorrect username or password."
 				redirect_to :back
 			else
-				if u.password != params[:password]
-					flash[:alert] = "Incorrect username or password."
-					redirect_to "back"
-				else
-					cookies[:user_id] = u.id
-					flash[:alert] = "Successfully logged in."
-					redirect_to "/wall/posts"
-				end
+				cookies[:user_id] = u.id
+			flash[:alert] = "Successfully logged in."
+				redirect_to "/wall/posts"
 			end
 		end
 	end
+		
+	def logout
+		cookies.delete(:user_id)
+		redirect_to	:back
+	end
+end
